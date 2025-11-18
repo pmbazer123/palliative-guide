@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המדריך המלא לתמיכה בקרוביך בשלב סוף החיים</title>
+    <meta name="description" content="מדריך מקיף לבני משפחה המטפלים בקרובים בשלב סוף החיים - כלים מעשיים, הכוונה מקצועית ותמיכה רגשית">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #218D8D;
+            --color-primary-hover: #1D7480;
+            --color-primary-active: #1A6873;
+            --color-secondary: #F5F5F5;
+            --color-text: #1F2121;
+            --color-text-secondary: #626C71;
+            --color-bg: #FCFCF9;
+            --color-surface: #FFFFFD;
+            --color-border: rgba(94, 82, 64, 0.2);
+            --color-success: #218D8D;
+            --color-teal-light: rgba(33, 141, 141, 0.1);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-primary: #32B8C6;
+                --color-primary-hover: #2DA6B2;
+                --color-primary-active: #2996A1;
+                --color-secondary: rgba(119, 124, 124, 0.15);
+                --color-text: #F5F5F5;
+                --color-text-secondary: rgba(167, 169, 169, 0.7);
+                --color-bg: #1F2121;
+                --color-surface: #262828;
+                --color-border: rgba(119, 124, 124, 0.3);
+                --color-teal-light: rgba(50, 184, 198, 0.15);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Heebo', 'Assistant', sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-teal-light) 0%, var(--color-surface) 100%);
+            padding: 80px 20px 60px;
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .cta-primary {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 16px 40px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .hero .cta-primary:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero .pricing-note {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--color-text);
+        }
+
+        /* Pain Points */
+        .pain-points {
+            background: var(--color-surface);
+        }
+
+        .pain-points ul {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: none;
+        }
+
+        .pain-points li {
+            padding: 15px 20px 15px 50px;
+            margin-bottom: 15px;
+            background: var(--color-teal-light);
+            border-radius: var(--radius-md);
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .pain-points li::before {
+            content: "✓";
+            position: absolute;
+            right: 20px;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .solution p {
+            font-size: 1.15rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Content Highlights */
+        .highlights {
+            background: var(--color-surface);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .highlight-card {
+            background: var(--color-bg);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .highlight-card p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Target Audience */
+        .audience ul {
+            max-width: 700px;
+            margin: 0 auto;
+            list-style: none;
+        }
+
+        .audience li {
+            padding: 20px;
+            margin-bottom: 15px;
+            background: var(--color-teal-light);
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            text-align: center;
+            border-right: 4px solid var(--color-primary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--color-surface);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--color-bg);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: "״";
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 3rem;
+            color: var(--color-primary);
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--color-text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* Pricing */
+        .pricing {
+            background: var(--color-teal-light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--color-surface);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--color-border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--color-text);
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+
+        .pricing-card li {
+            padding: 10px 0;
+            color: var(--color-text-secondary);
+        }
+
+        .pricing-card li::before {
+            content: "✓ ";
+            color: var(--color-success);
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 14px 30px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--color-secondary);
+            color: var(--color-text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-border);
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--color-surface);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--color-teal-light);
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 20px 20px;
+        }
+
+        .faq-answer p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--color-teal-light) 0%, var(--color-surface) 100%);
+            text-align: center;
+        }
+
+        .newsletter form {
+            max-width: 500px;
+            margin: 30px auto 0;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            background: var(--color-surface);
+            color: var(--color-text);
+        }
+
+        .newsletter input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .newsletter .privacy {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-surface);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+        }
+
+        footer p {
+            color: var(--color-text-secondary);
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .highlights-grid,
+            .testimonials-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>המדריך המלא לתמיכה בקרוביך בשלב סוף החיים</h1>
+            <p>כלים מעשיים, הכוונה מקצועית ותמיכה רגשית למשפחות מטפלות</p>
+            <a href="#pricing" class="cta-primary">לרכישת המדריך</a>
+            <p class="pricing-note">זמין במהדורה מודפסת (78 ש״ח) ודיגיטלית (59 ש״ח)</p>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points">
+        <div class="container">
+            <h2>האם אתם מתמודדים עם...</h2>
+            <ul>
+                <li>תחושת בדידות והיעדר הכוונה בתהליך המורכב</li>
+                <li>קושי בקבלת החלטות טיפוליות ורפואיות</li>
+                <li>מצוקה רגשית ותחושת אי-ספיקה</li>
+                <li>חוסר מידע על זכויות, שירותים וגורמי עזר</li>
+                <li>קשיים בתקשורת עם הצוות הרפואי</li>
+                <li>צורך בכלים מעשיים לליווי יומיומי</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2>המדריך שיעזור לכם בכל שלב</h2>
+            <p>מדריך מקיף שנכתב על ידי אנשי מקצוע מהתחומים: ליווי רוחני, סיעוד, רפואה, עבודה סוציאלית ופסיכולוגיה - במיוחד עבורכם.</p>
+        </div>
+    </section>
+
+    <!-- Content Highlights -->
+    <section class="highlights">
+        <div class="container">
+            <h2>מה תמצאו במדריך?</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <h3>הדרכות מעשיות</h3>
+                    <p>כלים יומיומיים לליווי והטיפול בקרובכם</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>תקשורת רפואית</h3>
+                    <p>איך לדבר עם רופאים ולקבל החלטות מושכלות</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>זכויות ושירותים</h3>
+                    <p>מידע מלא על זכויותיכם והשירותים הזמינים</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>ליווי רוחני</h3>
+                    <p>תמיכה רגשית ורוחנית בתקופה מורכבת</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>קבלת החלטות</h3>
+                    <p>הכוונה במצבים קשים ודילמות מוסריות</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>שמירה על עצמכם</h3>
+                    <p>כלים למניעת שחיקה ושמירה על בריאות המטפל</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="audience">
+        <div class="container">
+            <h2>למי מיועד המדריך?</h2>
+            <ul>
+                <li>בני משפחה המטפלים בקרוב בשלב סוף החיים</li>
+                <li>מתנדבים ומלווים</li>
+                <li>כל מי שמחפש הכוונה והבנה בתקופה מורכבת זו</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>מה אומרים על המדריך?</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">המדריך הזה היה בשבילי אור בקצה המנהרה. קיבלתי כלים מעשיים שעזרו לי להרגיש בטוחה יותר.</p>
+                    <p class="testimonial-author">— שרה כ.</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">מקצועי, מעשי ורגיש. בדיוק מה שהייתי צריך בתקופה הקשה הזו.</p>
+                    <p class="testimonial-author">— דוד מ.</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">הפרקים שנכתבו על ידי אנשי המקצוע נתנו לי ביטחון והבנה עמוקה יותר של התהליך.</p>
+                    <p class="testimonial-author">— רחל ל.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>בחרו את המהדורה המתאימה לכם</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>מהדורה דיגיטלית</h3>
+                    <div class="price">59 ש״ח</div>
+                    <ul>
+                        <li>קבלה מיידית במייל</li>
+                        <li>נגיש בכל מכשיר</li>
+                        <li>ניתן להדפיס</li>
+                    </ul>
+                    <button class="btn" onclick="alert('תודה על העניין! בקרוב נפתח אפשרות רכישה מקוונת.')">רכישה דיגיטלית</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>מהדורה מודפסת</h3>
+                    <div class="price">78 ש״ח</div>
+                    <ul>
+                        <li>משלוח עד הבית</li>
+                        <li>ספר איכותי ומעוצב</li>
+                        <li>עמידות לאורך זמן</li>
+                    </ul>
+                    <button class="btn" onclick="alert('תודה על העניין! בקרוב נפתח אפשרות רכישה מקוונת.')">רכישה מודפסת</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>שאלות נפוצות</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        מה כולל המדריך?
+                    </div>
+                    <div class="faq-answer">
+                        <p>המדריך כולל פרקים מעשיים בנושאי ליווי יומיומי, תקשורת עם צוות רפואי, זכויות ושירותים, ליווי רוחני ורגשי, וכן פרקים שנכתבו על ידי אנשי מקצוע מהתחומים: רפואה, סיעוד, עבודה סוציאלית ופסיכולוגיה.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        האם המדריך מתאים גם למי שאין לו רקע רפואי?
+                    </div>
+                    <div class="faq-answer">
+                        <p>בהחלט! המדריך נכתב בשפה נגישה וברורה, מיועד למשפחות ולמטפלים ללא רקע מקצועי. המטרה היא לתת כלים מעשיים לכולם.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        כמה זמן לוקח לקבל את המדריך?
+                    </div>
+                    <div class="faq-answer">
+                        <p>מדריך דיגיטלי מתקבל מיד למייל לאחר הרכישה. מדריך מודפס נשלח בדואר תוך 3-5 ימי עסקים.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        האם ניתן לקבל החזר כספי?
+                    </div>
+                    <div class="faq-answer">
+                        <p>כן, אנחנו מציעים החזר כספי מלא תוך 14 יום מרכישה ללא שאלות.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        איך אפשר ליצור קשר?
+                    </div>
+                    <div class="faq-answer">
+                        <p>ניתן ליצור קשר דרך טופס יצירת הקשר באתר או במייל: info@example.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>רוצים לקבל עדכונים ותכנים נוספים?</h2>
+            <form onsubmit="event.preventDefault(); alert('תודה על ההרשמה! נשלח לכם עדכונים בקרוב.');">
+                <input type="text" placeholder="שם מלא" required>
+                <input type="email" placeholder="כתובת אימייל" required>
+                <button type="submit" class="btn">הרשמה לניוזלטר</button>
+                <p class="privacy">לא נשתף את הפרטים שלך עם צד שלישי</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 המדריך המלא לתמיכה בקרובים. כל הזכויות שמורות.</p>
+            <p>
+                <a href="#">תנאי שימוש</a>
+                <a href="#">מדיניות פרטיות</a>
+                <a href="#">צור קשר</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    a.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                
+                // Toggle current answer
+                if (!isActive) {
+                    answer.classList.add('active');
+                    question.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
