@@ -134,7 +134,7 @@
         }
 
         .pain-points li {
-            padding: 15px 50px 15px 20px;
+            padding: 15px 60px 15px 20px;
             margin-bottom: 15px;
             background: var(--color-teal-light);
             border-radius: var(--radius-md);
@@ -146,10 +146,12 @@
         .pain-points li::before {
             content: "✓";
             position: absolute;
-            right: 10px;
+            right: 20px;
             color: var(--color-primary);
             font-weight: bold;
             font-size: 1.3rem;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         /* Solution Section */
@@ -571,26 +573,28 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2>מה אומרים על המדריך?</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">המדריך הזה היה בשבילי אור בקצה המנהרה. קיבלתי כלים מעשיים שעזרו לי להרגיש בטוחה יותר.</p>
-                    <p class="testimonial-author">— שרה כ.</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">מקצועי, מעשי ורגיש. בדיוק מה שהייתי צריך בתקופה הקשה הזו.</p>
-                    <p class="testimonial-author">— דוד מ.</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">הפרקים שנכתבו על ידי אנשי המקצוע נתנו לי ביטחון והבנה עמוקה יותר של התהליך.</p>
-                    <p class="testimonial-author">— רחל ל.</p>
-                </div>
+<!-- TESTIMONIALS - מוסתר זמנית עד שיהיו המלצות אמיתיות
+<section>
+    <div class="container">
+        <h2>מה אומרים משפחות שהשתמשו במדריך</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <p style="font-style: italic; margin-bottom: 15px;">"המדריך עזר לנו להבין את התהליך ולהרגיש פחות אבודים. קיבלנו כלים מעשיים שממש עזרו לנו בתקופה הקשה."</p>
+                <p style="font-weight: 600;">- משפחת כהן, ירושלים</p>
+            </div>
+            <div class="feature-card">
+                <p style="font-style: italic; margin-bottom: 15px;">"הידע המקצועי והגישה האנושית במדריך נתנו לנו ביטחון ושקט נפשי. ממליצים בחום!"</p>
+                <p style="font-weight: 600;">- דוד ורחל לוי, תל אביב</p>
+            </div>
+            <div class="feature-card">
+                <p style="font-style: italic; margin-bottom: 15px;">"תודה על המדריך המקיף והמפורט. זה ממש עשה את ההבדל עבורנו."</p>
+                <p style="font-weight: 600;">- משפחת מזרחי, חיפה</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+-->
+
 
     <!-- Pricing -->
     <section class="pricing" id="pricing">
@@ -732,5 +736,51 @@
             });
         });
     </script>
+    <!-- Waitlist Modal -->
+<div id="waitlistModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeWaitlist()">&times;</span>
+        <h3>🎉 הספר בהכנה - הצטרפו לרשימת ההמתנה!</h3>
+        <p>אנחנו עובדים קשה על המדריך המלא ומקיף שיעזור לכם בתקופה הקשה.</p>
+        <div class="discount-highlight">
+            🎁 מצטרפים לרשימת ההמתנה יקבלו הנחה של 50% מהמחיר המלא!
+        </div>
+        <form class="newsletter-form" style="padding: 20px; margin: 0;">
+            <div class="form-group">
+                <label for="waitlist-name">שם מלא</label>
+                <input type="text" id="waitlist-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="waitlist-email">כתובת אימייל</label>
+                <input type="email" id="waitlist-email" name="email" required>
+            </div>
+            <button type="submit" class="cta-button" style="width: 100%;">שמרו לי מקום ברשימה!</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openWaitlist() {
+        document.getElementById('waitlistModal').classList.add('active');
+    }
+    
+    function closeWaitlist() {
+        document.getElementById('waitlistModal').classList.remove('active');
+    }
+    
+    window.onclick = function(event) {
+        const modal = document.getElementById('waitlistModal');
+        if (event.target == modal) {
+            closeWaitlist();
+        }
+    }
+    
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+    });
+</script>
+
 </body>
 </html>
