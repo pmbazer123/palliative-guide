@@ -134,21 +134,24 @@
         }
 
         .pain-points li {
-            padding: 15px 20px 15px 50px;
+            padding: 15px 50px 15px 20px;
             margin-bottom: 15px;
             background: var(--color-teal-light);
             border-radius: var(--radius-md);
             position: relative;
             font-size: 1.05rem;
+            text-align: right;
         }
 
         .pain-points li::before {
             content: "✓";
             position: absolute;
-            right: 20px;
+            right: 10px;
             color: var(--color-primary);
             font-weight: bold;
             font-size: 1.3rem;
+            top: 50%;
+            transform: translateY (-50%);
         }
 
         /* Solution Section */
